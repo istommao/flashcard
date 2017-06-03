@@ -1,3 +1,17 @@
-from django.shortcuts import render
+"""card views."""
+from django.views import generic
 
-# Create your views here.
+
+class IndexView(generic.TemplateView):
+    """Index view."""
+
+    view_name = 'index'
+
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        dataset = {}
+        context.update(dataset)
+        return context

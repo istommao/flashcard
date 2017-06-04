@@ -13,7 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf import settings
+from django.conf.urls import url, include, static
 from django.contrib import admin
 
 # pylint: disable=C0103
@@ -21,3 +22,9 @@ urlpatterns = [
     url(r'^card/', include('card.urls', namespace='card')),
     url(r'^admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static.static(settings.MEDIA_URL,
+                                 document_root=settings.MEDIA_ROOT)
+    urlpatterns += static.static(settings.STATIC_URL,
+                                 document_root=settings.STATIC_ROOT)

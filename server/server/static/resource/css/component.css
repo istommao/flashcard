@@ -2,9 +2,9 @@
 	margin: 0 auto;
 	position: relative;
 	z-index: 1000;
-	width: 320px;
-	height: 320px;
-	padding: 0;
+	width: 500px;
+	height: 500px;
+	padding: 5px;
 	list-style: none;
     pointer-events: none;
 }
@@ -20,6 +20,7 @@
 	opacity: 0;
 	display: -webkit-flex;
 	display: flex;
+	font-family: Helvetica,Tahoma,Arial, sans-serif;
 	-webkit-flex-direction: column;
 	flex-direction: column;
 	-webkit-touch-callout: none;

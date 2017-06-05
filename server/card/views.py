@@ -1,6 +1,8 @@
 """card views."""
 from django.views import generic
 
+from card.models import Card
+
 
 class IndexView(generic.TemplateView):
     """Index view."""
@@ -12,6 +14,8 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        dataset = {}
+        card = Card.objects.first()
+
+        dataset = {'card': card}
         context.update(dataset)
         return context
